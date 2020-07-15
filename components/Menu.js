@@ -37,6 +37,9 @@ const menuMaker = () => {
   const uList = document.createElement('ul')
   const lItem = document.createElement('li'*6)
 
+  menu.appendChild('uList')
+  uList.appendChild('lItem')
+
 
 
 
