@@ -113,55 +113,119 @@ const data = [{
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
 
+// TODO: Figure out what object to pass through the function
 const articleMaker = () => {
-    // Creating object to house article data
-    const pageData = {
-        title: data.title,
-        date: data.date,
-        p1: data.firstParagraph,
-        p2: data.secondParagraph,
-        p3: data.thirdParagraph
-    }
-
-    // Create new HTML elements and assign classes
+    // TODO: Create Object to call data from array
+    // TODO: Create HTML Elements
     const article = document.createElement('div')
-    const articleTitle = document.createElement('h2')
-    const arDate = document.createElement('p')
-    const content1 = document.createElement('p')
-    const content2 = document.createElement('p')
-    const content3 = document.createElement('p')
-    const expand = document.createElement('span')
+    const title = document.createElement('h2')
+    const date = document.createElement('p')
+        //Thought it would be easier to create an array of the p elements that contain text
+    const content = [content0, content1, content2]
+    content.forEach((p => {
+            p.createElement('p')
+        }))
+        // const content0 = document.createElement('p')
+        // const content1 = document.createElement('p')
+        // const content2 = document.createElement('p')
+    expandBtn = document.createElement('span')
 
-    // Structure markup to match
-    article.appendChild(pageData)
+    // Create HTML Structure
+    article.appendChild(title, date, content, expandBtn)
 
     // Classes
-    article.classList.add('article')
-    arDate.classList.add('date')
-    expand.classList.add('expandButton', 'close')
-
-    // Content
-    expand.textContent('+')
-    arTitle.textContent = title;
-    articleDate.textContent = date;
-    articleContent.textContent = p1, p2, p3
 
 
-    // Add Event Listener to toggle article-open
-    expandButton.addEventListener('click', () => {
-        expand.classList.toggle('article-open')
-    })
 
-    return article;
+
+
+
+
+
 
 }
 
-// Implement DOM elements into markup
-const newArticle = articleMaker(object);
-const articles = document.querySelector('.articles')
-articles.appendChild(newArticle)
 
-// Refactor to iterate over data
-data.forEach(item => {
-    articles.appendChild(articleMaker(item.object));
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const articleMaker = (data) => {
+//     // Creating object to house article data
+//     const pageData = {
+//         title: data.title,
+//         date: data.date,
+//         p1: data.firstParagraph,
+//         p2: data.secondParagraph,
+//         p3: data.thirdParagraph
+//     }
+
+//     // Create new HTML elements and assign classes
+//     const article = document.createElement('div')
+//     const articleTitle = document.createElement('h2')
+//     const arDate = document.createElement('p')
+//     const content1 = document.createElement('p')
+//     const content2 = document.createElement('p')
+//     const content3 = document.createElement('p')
+//     const expand = document.createElement('span')
+
+//     // Classes
+//     article.classList.add('article')
+//     arDate.classList.add('date')
+//     content1.classList.add('content')
+//     content2.classList.add('content')
+//     content3.classList.add('content')
+//     expand.classList.add('expandButton', 'close')
+
+//     // Structure markup to match
+//     const articleContent = document.querySelectorAll('.content')
+//     article.appendChild(articleTitle, arDate, articleContent, expand)
+
+//     // Content
+//     expand.textContent('+')
+//     arTitle.textContent = pageData.title;
+//     articleDate.textContent = pageData.date;
+//     articleContent.textContent = articleContent;
+
+//     // Add Event Listener to toggle article-open
+//     expand.addEventListener('click', () => {
+//         expand.classList.toggle('article-open')
+//     })
+
+//     return article(data);
+// }
+
+// // Implement DOM elements into markup
+// const newArticle = articleMaker(pageData);
+// const articles = document.querySelector('.articles')
+// articles.appendChild(newArticle)
+
+// // Refactor to iterate over data
+// data.forEach(item => {
+//     articles.appendChild(articleMaker(item.pageData));
+// })
