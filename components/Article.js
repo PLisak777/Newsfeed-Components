@@ -147,7 +147,12 @@ const articleMaker = (dataObject) => {
     expandBtn = document.createElement('span')
 
     // Create HTML Structure
-    article.appendChild(articleTitle, articleDate, p1, p2, p3, expandBtn)
+    article.appendChild(articleTitle)
+    article.appendChild(articleDate)
+    article.appendChild(p1)
+    article.appendChild(p2)
+    article.appendChild(p3)
+    article.appendChild(expandBtn)
 
     // Classes
     article.classList.add('article')
@@ -155,11 +160,11 @@ const articleMaker = (dataObject) => {
     expandBtn.classList.add('expandButton', 'close')
 
     // Content
-    articleTitle.textContent = dataObject.title;
-    articleDate.textContent = dataObject.date;
-    p1.textContent = dataObject.firstParagraph
-    p2.textContent = dataObject.secondParagraph
-    p3.textContent = dataObject.thirdParagraph
+    articleTitle.textContent = data[0].title;
+    articleDate.textContent = data[0].date;
+    p1.textContent = data[0].firstParagraph
+    p2.textContent = data[0].secondParagraph
+    p3.textContent = data[0].thirdParagraph
     expandBtn.textContent = '+'
 
     // Event Listener
