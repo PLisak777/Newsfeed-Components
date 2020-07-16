@@ -113,76 +113,53 @@ const data = [{
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
 
-// TODO: Figure out what object to pass through the function
 const articleMaker = (dataObject) => {
-    // TODO: Create Object to call data from array
-
-    // const pageData = {
-    //     title: data.title,
-    //     date: data.date,
-    //     content0: data.firstParagraph,
-    //     content1: data.secondParagraph,
-    //     content2: data.thirdParagraph
-    // }
-
-    // TODO: Create HTML Elements
-    const article = document.createElement('div')
-    const articleTitle = document.createElement('h2')
-    const articleDate = document.createElement('p')
-    const p1 = document.createElement('p')
-    const p2 = document.createElement('p')
-    const p3 = document.createElement('p')
-
-    //Thought it would be easier to create an array of the p elements that contain text
-    // const articleContent = [content0, content1, content2]
-    // articleContent.forEach((el => {
-    //         let p = document.createElement('p')
-    //         p.className('content')
-    //         p.innerHTML = el;
-    //     })) // Doing this allows the code to stay DRY... If it works.
-
-    // const content0 = document.createElement('p')
-    // const content1 = document.createElement('p')
-    // const content2 = document.createElement('p')
-    expandBtn = document.createElement('span')
+    const article = document.createElement('div');
+    const articleTitle = document.createElement('h2');
+    const articleDate = document.createElement('p');
+    const p1 = document.createElement('p');
+    const p2 = document.createElement('p');
+    const p3 = document.createElement('p');
+    const expandBtn = document.createElement('span');
 
     // Create HTML Structure
-    article.appendChild(articleTitle)
-    article.appendChild(articleDate)
-    article.appendChild(p1)
-    article.appendChild(p2)
-    article.appendChild(p3)
-    article.appendChild(expandBtn)
+    article.appendChild(articleTitle);
+    article.appendChild(articleDate);
+    article.appendChild(p1);
+    article.appendChild(p2);
+    article.appendChild(p3);
+    article.appendChild(expandBtn);
 
     // Classes
-    article.classList.add('article')
-    articleDate.classList.add('date')
-    expandBtn.classList.add('expandButton', 'close')
+    article.classList.add('article');
+    articleDate.classList.add('date');
+    expandBtn.classList.add('expandButton', 'close');
 
     // Content
-    articleTitle.textContent = data[0].title;
-    articleDate.textContent = data[0].date;
-    p1.textContent = data[0].firstParagraph
-    p2.textContent = data[0].secondParagraph
-    p3.textContent = data[0].thirdParagraph
-    expandBtn.textContent = '+'
+    articleTitle.textContent = data[dataObject].title;
+    articleDate.textContent = data[dataObject].date;
+    p1.textContent = data[dataObject].firstParagraph;
+    p2.textContent = data[dataObject].secondParagraph;
+    p3.textContent = data[dataObject].thirdParagraph;
+    expandBtn.textContent = '\u2795';
 
     // Event Listener
     expandBtn.addEventListener('click', () => {
-      expandBtn.classList.toggle('article-open')
+        const articleDiv = document.querySelector('.article');
+        articleDiv.classList.toggle("article-open");
     })
 
     return article;
 }
 
 // Implement DOM elements into markup
-const newArticle = articleMaker(data);
-const articles = document.querySelector('.articles')
-articles.appendChild(newArticle)
+const newArticle = articleMaker(2);
+const articles = document.querySelector('.articles');
+articles.appendChild(newArticle);
 
 // Refactor to iterate over data
 data.forEach(item => {
-    articles.appendChild(articleMaker(item.dataObject));
+    articles.appendChild(articleMaker(item.data));
 })
 
 
