@@ -158,6 +158,6 @@ const articles = document.querySelector('.articles');
 articles.appendChild(newArticle);
 
 // Refactor to iterate over data
-data.forEach(item => {
+data.forEach((item) => {
     articles.appendChild(articleMaker(item.data));
 })
