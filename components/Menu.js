@@ -36,19 +36,26 @@ const menuMaker = (menuItems) => {
     const menu = document.createElement('div')
     const list = document.createElement('ul')
     const menuBtn = document.querySelector('.menu-button')
+    const listItem = document.createElement('li')
+
+    menuItems.forEach((arr) => { // *SHOULD* add an li for each entry in the array and append to the ul
+      for (let i = 0; i <= arr.length; i++) {
+        list.appendChild(listItem)
+        listItem.textContent = arr[i]
+      }      
+      return listItem
+  })
+  console.log(listItem)
 
     //HTML Structure
     menu.appendChild(list)
-    const listItem = menuItems.forEach(() => { // *SHOULD* add an li for each entry in the array and append to the ul
-        document.createElement('li')
-        list.appendChild(listItem)
-    })
+    // list.appendChild(listItem)
 
     // Classes
     menu.classList.add('menu')
 
     // Content
-    listItem.textContent = menuItems
+    // listItem.textContent = menuItems[item]
 
     // Events
     menuBtn.addEventListener('click', () => {
@@ -60,5 +67,5 @@ const menuMaker = (menuItems) => {
 
 const newMenu = menuMaker(menuItems)
 const header = document.querySelector(".header")
-console.log(header)
+// console.log(header)
 header.appendChild(newMenu)
